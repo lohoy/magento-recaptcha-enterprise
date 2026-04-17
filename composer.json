@@ -1,0 +1,33 @@
+{
+    "name": "lohoy/magento-recaptcha-enterprise",
+    "description": "Google Recaptcha Enterprise UI module for Magento 2",
+    "homepage": "https://github.com/lohoy/magento-recaptcha-enterprise",
+    "type": "magento2-module",
+    "version": "1.0.0",
+    "license": [
+        "OSL-3.0",
+        "AFL-3.0"
+    ],
+    "authors": [
+        {
+            "name": "Lorenz HOYET",
+            "email": "lorenz.hoyet@smile.fr"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/lohoy/magento-recaptcha-enterprise/issues"
+    },
+    "require": {
+        "php": "^8.1",
+        "magento/module-re-captcha-ui": "*",
+        "google/cloud-recaptcha-enterprise": "*"
+    },
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Lohoy\\ReCaptchaEnterprise\\": ""
+        }
+    }
+}

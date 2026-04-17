@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <recaptcha_frontend>
+            <type_recaptcha_v3>
+                <google_project_id></google_project_id>
+                <google_credentials_file></google_credentials_file>
+            </type_recaptcha_v3>
+        </recaptcha_frontend>
+    </default>
+</config>

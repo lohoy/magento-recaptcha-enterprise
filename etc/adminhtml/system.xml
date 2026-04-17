@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="recaptcha_frontend">
+            <group id="type_recaptcha_v3">
+                <field id="google_project_id"
+                       translate="label comment"
+                       type="text"
+                       sortOrder="70"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="0"
+                       canRestore="0">
+                    <label>Google Cloud Project ID</label>
+                    <comment>
+                        <![CDATA[Your GCP project ID (e.g. <code>my-gcp-project</code>). Required for reCAPTCHA Enterprise validation.]]>
+                    </comment>
+                </field>
+
+                <field id="google_credentials_file"
+                       translate="label comment"
+                       type="text"
+                       sortOrder="80"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="0"
+                       canRestore="0">
+                    <label>Google Credentials JSON File Path</label>
+                    <comment>
+                        <![CDATA[Absolute path to the Service Account credentials JSON file (e.g. <code>/var/www/html/credentials/recaptcha-sa.json</code>).<br/>Leave empty to use the <code>GOOGLE_APPLICATION_CREDENTIALS</code> environment variable or Application Default Credentials.]]>
+                    </comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>
