@@ -3,7 +3,7 @@
     "description": "Google Recaptcha Enterprise UI module for Magento 2",
     "homepage": "https://github.com/lohoy/magento-recaptcha-enterprise",
     "type": "magento2-module",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "license": [
         "OSL-3.0",
         "AFL-3.0"
@@ -20,6 +20,7 @@
     "require": {
         "php": "^8.1",
         "magento/module-re-captcha-ui": "*",
+        "magento/module-config": "*",
         "google/cloud-recaptcha-enterprise": "*"
     },
     "autoload": {

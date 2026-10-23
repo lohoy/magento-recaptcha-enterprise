@@ -47,13 +47,13 @@ class EnterpriseValidator implements ValidatorInterface
             ]);
         }
 
-        $clientOptions = [];
-        $credentialsFile = $this->enterpriseConfig->getCredentialsFile();
-        if ($credentialsFile !== '') {
-            $clientOptions['credentials'] = $credentialsFile;
-        }
-
         try {
+            $clientOptions = [];
+            $credentials = $this->enterpriseConfig->getCredentials();
+            if ($credentials !== '') {
+                $clientOptions['credentials'] = $credentials;
+            }
+
             $client = new RecaptchaEnterpriseServiceClient($clientOptions);
         } catch (\Exception $e) {
             $this->logger->critical('[RecaptchaEnterprise] Failed to create client: ' . $e->getMessage());

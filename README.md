@@ -28,6 +28,14 @@ To configure the module from the Magento Admin:
 2. Expand the **reCAPTCHA v3 Invisible** section.
 3. Provide the credentials specific to your Google Cloud Enterprise project:
    * **Google Cloud Project ID**: Your Google Cloud project ID.
-   * **Google Credentials JSON File Path**: Absolute path to the Service Account credentials JSON file (e.g., `/var/www/html/magento/credentials.json`). Leave empty to use the `GOOGLE_APPLICATION_CREDENTIALS` environment variable or Application Default Credentials.
+   * **Google Credentials Source**: How the Service Account credentials JSON file is provided:
+     * **File path on server** (default): fill **Google Credentials JSON File Path** with the absolute path to the file (e.g., `/var/www/html/magento/credentials.json`).
+     * **Encrypted JSON**: paste the content of the JSON file in **Google Credentials JSON**. It is stored encrypted in the database (with the Magento crypt key), so no file has to exist on the server. It is flagged as sensitive, so it is never exported by `bin/magento app:config:dump`, and it can be set from the CLI:
+       ```bash
+       bin/magento config:set recaptcha_frontend/type_recaptcha_v3/google_credentials_source json
+       bin/magento config:sensitive:set recaptcha_frontend/type_recaptcha_v3/google_credentials_json "$(cat credentials.json)"
+       ```
+
+   Leave the path or JSON empty to use the `GOOGLE_APPLICATION_CREDENTIALS` environment variable or Application Default Credentials.
 
 ![Magento Admin Configuration Screenshot](docs/config.png)

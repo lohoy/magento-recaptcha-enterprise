@@ -18,6 +18,18 @@
                     </comment>
                 </field>
 
+                <field id="google_credentials_source"
+                       translate="label"
+                       type="select"
+                       sortOrder="75"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="0"
+                       canRestore="1">
+                    <label>Google Credentials Source</label>
+                    <source_model>Lohoy\ReCaptchaEnterprise\Model\Config\Source\CredentialsSource</source_model>
+                </field>
+
                 <field id="google_credentials_file"
                        translate="label comment"
                        type="text"
@@ -30,6 +42,27 @@
                     <comment>
                         <![CDATA[Absolute path to the Service Account credentials JSON file (e.g. <code>/var/www/html/credentials/recaptcha-sa.json</code>).<br/>Leave empty to use the <code>GOOGLE_APPLICATION_CREDENTIALS</code> environment variable or Application Default Credentials.]]>
                     </comment>
+                    <depends>
+                        <field id="google_credentials_source">path</field>
+                    </depends>
+                </field>
+
+                <field id="google_credentials_json"
+                       translate="label comment"
+                       type="obscure"
+                       sortOrder="80"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="0"
+                       canRestore="0">
+                    <label>Google Credentials JSON</label>
+                    <backend_model>Lohoy\ReCaptchaEnterprise\Model\Config\Backend\CredentialsJson</backend_model>
+                    <comment>
+                        <![CDATA[Paste the content of the Service Account credentials JSON file. It is stored encrypted in the database.<br/>Leave empty to use the <code>GOOGLE_APPLICATION_CREDENTIALS</code> environment variable or Application Default Credentials.]]>
+                    </comment>
+                    <depends>
+                        <field id="google_credentials_source">json</field>
+                    </depends>
                 </field>
             </group>
         </section>

@@ -5,7 +5,9 @@
         <recaptcha_frontend>
             <type_recaptcha_v3>
                 <google_project_id></google_project_id>
+                <google_credentials_source>path</google_credentials_source>
                 <google_credentials_file></google_credentials_file>
+                <google_credentials_json backend_model="Magento\Config\Model\Config\Backend\Encrypted"/>
             </type_recaptcha_v3>
         </recaptcha_frontend>
     </default>

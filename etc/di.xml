@@ -10,6 +10,14 @@
         </arguments>
     </type>
 
+    <type name="Magento\Config\Model\Config\TypePool">
+        <arguments>
+            <argument name="sensitive" xsi:type="array">
+                <item name="recaptcha_frontend/type_recaptcha_v3/google_credentials_json" xsi:type="string">1</item>
+            </argument>
+        </arguments>
+    </type>
+
     <virtualType name="LohoyRecaptchaEnterpriseLoggerHandler" type="Magento\Framework\Logger\Handler\Base">
         <arguments>
             <argument name="fileName" xsi:type="string">var/log/lohoy_recaptcha_enterprise.log</argument>
