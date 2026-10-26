@@ -3,7 +3,7 @@
     "description": "Google Recaptcha Enterprise UI module for Magento 2",
     "homepage": "https://github.com/lohoy/magento-recaptcha-enterprise",
     "type": "magento2-module",
-    "version": "1.1.0",
+    "version": "1.1.1",
     "license": [
         "OSL-3.0",
         "AFL-3.0"

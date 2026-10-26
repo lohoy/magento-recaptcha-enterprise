@@ -3,6 +3,11 @@
 All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [1.1.1] - 2026-10-26
+
+### Fixed
+- **Google Credentials JSON** source failed with "Initialization vector must be 32 bytes": the value was decrypted twice, once by ScopeConfig (Encrypted backend model declared in `config.xml`) and again in `EnterpriseConfig::getCredentials()`.
+
 ## [1.1.0] - 2026-10-23
 
 ### Added

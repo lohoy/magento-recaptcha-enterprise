@@ -6,7 +6,6 @@ namespace Lohoy\ReCaptchaEnterprise\Model\Config;
 
 use Lohoy\ReCaptchaEnterprise\Model\Config\Source\CredentialsSource;
 use Magento\Framework\App\Config\ScopeConfigInterface;
-use Magento\Framework\Encryption\EncryptorInterface;
 use Magento\Store\Model\ScopeInterface;
 
 class EnterpriseConfig
@@ -18,8 +17,7 @@ class EnterpriseConfig
     private const XML_PATH_PUBLIC_KEY        = 'recaptcha_frontend/type_recaptcha_v3/public_key';
 
     public function __construct(
-        private readonly ScopeConfigInterface $scopeConfig,
-        private readonly EncryptorInterface   $encryptor
+        private readonly ScopeConfigInterface $scopeConfig
     ) {}
 
     /**
@@ -43,8 +41,10 @@ class EnterpriseConfig
         $source = $this->scopeConfig->getValue(self::XML_PATH_CREDENTIALS_SOURCE, ScopeInterface::SCOPE_WEBSITE);
 
         if ($source === CredentialsSource::JSON) {
-            $encrypted = (string) $this->scopeConfig->getValue(self::XML_PATH_CREDENTIALS_JSON, ScopeInterface::SCOPE_WEBSITE);
-            $json = trim($this->encryptor->decrypt($encrypted));
+            // Already decrypted by ScopeConfig: the Encrypted backend_model is declared in config.xml
+            $json = trim(
+                (string) $this->scopeConfig->getValue(self::XML_PATH_CREDENTIALS_JSON, ScopeInterface::SCOPE_WEBSITE)
+            );
             if ($json !== '') {
                 return json_decode($json, true, 512, JSON_THROW_ON_ERROR);
             }
